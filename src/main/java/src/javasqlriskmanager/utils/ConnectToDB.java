@@ -3,10 +3,19 @@ package src.javasqlriskmanager.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConnectToDB {
 
-    public static Connection connectToDB(String url, String user, String password){
+    public static Connection connectToDB(){
+
+        Dotenv dotenv = Dotenv.load();
+
+        // Acceder a las variables de entorno
+        String url = dotenv.get("DB_URL");
+        String user = dotenv.get("DB_USER");
+        String password = dotenv.get("DB_PASSWORD");
+
         Connection connection = null;
 
         try {
@@ -14,7 +23,6 @@ public class ConnectToDB {
             if (connection != null) {
                 System.out.println("Conexión exitosa a la base de datos");
             }
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos: " + e.getMessage());
         }
