@@ -7,6 +7,7 @@ module src.javasqlriskmanager {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires java.dotenv;
+    requires annotations;
 
     opens src.javasqlriskmanager to javafx.fxml;
     exports src.javasqlriskmanager;

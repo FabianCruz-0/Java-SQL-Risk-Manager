@@ -20,6 +20,7 @@ public class ConnectToDB {
 
         try {
             connection = DriverManager.getConnection(url, user, password);
+            //connection = DriverManager.getConnection(url);
             if (connection != null) {
                 System.out.println("Conexión exitosa a la base de datos");
             }
