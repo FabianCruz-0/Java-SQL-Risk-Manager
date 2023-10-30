@@ -2,62 +2,62 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="457.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.DetalleIncidenciaController">
    <children>
-      <Label layoutX="59.0" layoutY="44.0" text="Detalle de incidencia #0001">
+      <Label layoutX="24.0" layoutY="22.0" text="Detalle de incidencia #0001">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <GridPane layoutX="59.0" layoutY="86.0" prefHeight="339.0" prefWidth="276.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="86.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="131.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="145.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Button layoutX="564.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <VBox alignment="TOP_RIGHT" layoutX="43.0" layoutY="79.0" prefHeight="113.0" prefWidth="73.0" spacing="15.0">
          <children>
+            <Label text="Titulo" />
             <Label text="ID" />
-            <Label text="Titulo" GridPane.rowIndex="1" />
-            <Label text="Descripción" GridPane.rowIndex="2" />
-            <Label text="Fecha de cración" GridPane.rowIndex="3" />
-            <Label text="Última actualización" GridPane.rowIndex="4" />
-            <Label text="Estatus" GridPane.rowIndex="5" />
-            <Label text="Severidad" GridPane.rowIndex="6" />
-            <Label text="Usuario creador" GridPane.rowIndex="7" />
-            <Label text="Usuario asignado" GridPane.rowIndex="8" />
-            <Label text="Departamento" GridPane.rowIndex="9" />
-            <Label text="0001" GridPane.columnIndex="1" />
-            <Label text="El titulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField text="Descripcion de la incidencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Fecha" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Actualizado el " GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Open" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Urgente" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Uriel" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="Fabian" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Producción" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Estatus" />
+            <Label text="Descripción" />
          </children>
-      </GridPane>
-      <Button layoutX="518.0" layoutY="43.0" mnemonicParsing="false" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
+      </VBox>
+      <VBox layoutX="135.0" layoutY="79.0" prefHeight="90.0" prefWidth="174.0" spacing="15.0">
+         <children>
+            <Label text="El titulo" />
+            <Label text="0001" />
+            <Label text="Open" />
+         </children>
+      </VBox>
+      <TextArea layoutX="55.0" layoutY="206.0" prefHeight="147.0" prefWidth="256.0" text="Descripción..." />
+      <VBox alignment="TOP_RIGHT" layoutX="360.0" layoutY="88.0" prefHeight="118.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <Label text="Fecha de cración" />
+            <Label text="Departamento" />
+            <Label text="Severidad" />
+            <Label text="Usuario asignado" />
+            <Label text="Usuario creador" />
+            <Label text="Actualizado el " />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="490.0" layoutY="88.0" prefHeight="118.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <Label text="Fecha" />
+            <Label text="Producción" />
+            <Label text="Urgente" />
+            <Label text="Fabian" />
+            <Label text="Uriel" />
+            <Label text="Última actualización" />
+         </children>
+      </VBox>
+      <Separator layoutX="327.0" layoutY="79.0" orientation="VERTICAL" prefHeight="368.0" prefWidth="0.0" />
+      <Button layoutX="479.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #EBA000;" text="Editar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
