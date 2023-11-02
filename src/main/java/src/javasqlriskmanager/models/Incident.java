@@ -107,4 +107,20 @@ public class Incident {
     public void setId_department(Long id_department) {
         this.id_department = id_department;
     }
+
+    @Override
+    public String toString() {
+        return "Incident{" +
+                "title='" + title + '\'' +
+                ", id=" + id +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", updateDate=" + updateDate +
+                ", id_status=" + id_status +
+                ", id_severity=" + id_severity +
+                ", id_creatorUser=" + id_creatorUser +
+                ", id_assignedUser=" + id_assignedUser +
+                ", id_department=" + id_department +
+                '}';
+    }
 }

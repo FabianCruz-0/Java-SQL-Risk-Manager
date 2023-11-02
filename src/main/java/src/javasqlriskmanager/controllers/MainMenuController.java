@@ -24,58 +24,44 @@ public class MainMenuController {
     @FXML
     protected void  goToIncidents() throws IOException {
         principalStage.close();
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
-        //Scene scene = new Scene(loader.load());
-        root = loader.load();
-
-        CatIncidenciasController catIncidenciasController = loader.getController();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Catalogo de incidencias");
-        stage.show();
-
-        //CatIncidenciasController incidenciasController = loader.getController();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Catálogo de incidencias");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 
     @FXML
     protected void goToUsers() throws IOException{
         principalStage.close();
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("CatUsuarios.fxml"));
-        //Scene scene = new Scene(loader.load());
-        root = loader.load();
-
-        //CatIncidenciasController catIncidenciasController = loader.getController();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Catalogo de usuarios");
-        stage.show();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatUsuarios.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Catálogo de usuarios");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 
     @FXML
     protected void goToDeptos() throws IOException{
         principalStage.close();
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("CatDepartamentos.fxml"));
-        //Scene scene = new Scene(loader.load());
-        root = loader.load();
-
-        //CatIncidenciasController catIncidenciasController = loader.getController();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Catalogo de departamentos");
-        stage.show();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatDepartamentos.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Catálogo de departamentos");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 
     @FXML
     protected void goToRoles() throws IOException{
         principalStage.close();
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("CatRoles.fxml"));
-        //Scene scene = new Scene(loader.load());
-        root = loader.load();
-
-        //CatIncidenciasController catIncidenciasController = loader.getController();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Catalogo de roles");
-        stage.show();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatRoles.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Catálogo de roles");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 }

@@ -15,7 +15,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="564.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
+      <Button onAction="#irCatalogo" layoutX="564.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

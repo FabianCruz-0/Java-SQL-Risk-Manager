@@ -17,6 +17,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         principalStage.setTitle("Inicio de sesión");
         principalStage.setScene(scene);
+        principalStage.setResizable(false);
         principalStage.show();
     }
 

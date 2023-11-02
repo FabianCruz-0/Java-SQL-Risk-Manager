@@ -34,5 +34,6 @@
          </font>
       </Button>
       <Pagination layoutX="197.0" layoutY="404.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="404.0" />
+       <Button onAction="#irMenuPrincipal" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #ff3b3b;" text="Atrás" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -9,8 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import src.javasqlriskmanager.MainApplication;
@@ -28,9 +30,6 @@ import java.util.*;
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
 public class CatIncidenciasController implements Initializable {
-    //public CatIncidenciasController() {
-    //    setIncidentList();
-    //}
 
     private Parent root;
 
@@ -94,19 +93,34 @@ public class CatIncidenciasController implements Initializable {
 
         tbl_incidencias.setItems(incidentList);
 
+        tbl_incidencias.setRowFactory( tv -> {
+            TableRow<Incident> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    Incident rowData = row.getItem();
+                    System.out.println(rowData.toString());
+
+                    try {
+                        irDetalle();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            return row;
+        });
+
     }
 
     @FXML
-    protected void creaIncident(ActionEvent event) throws IOException {
-        //principalStage.close();
-        FXMLLoader loader = new FXMLLoader(MainMenuController.class.getResource("new-incident.fxml"));
-        //Scene scene = new Scene(loader.load());
-        root = loader.load();
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Nueva Incidencia");
-        stage.show();
+    protected void creaIncident() throws IOException {
+        principalStage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("new-incident.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Nueva Incidencia");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 
     @Override
@@ -122,5 +136,27 @@ public class CatIncidenciasController implements Initializable {
         col_Assigned.setCellValueFactory(new PropertyValueFactory<Incident, Long>("id_assignedUser"));
         col_Department.setCellValueFactory(new PropertyValueFactory<Incident, Long>("id_department"));
         setIncidentList();
+    }
+
+    public void irMenuPrincipal() throws IOException {
+        principalStage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Menú Principal");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
+    }
+
+
+
+    public void irDetalle() throws IOException {
+        principalStage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("DetalleIncidencia.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Detalle de incidencia");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 }

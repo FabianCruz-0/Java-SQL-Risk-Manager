@@ -53,6 +53,7 @@ public class LoginController {
             Scene scene = new Scene(fxmlLoader.load());
             principalStage.setTitle("CREAR INCIDENCIA");
             principalStage.setScene(scene);
+        principalStage.setResizable(false);
             principalStage.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,6 +94,7 @@ public class LoginController {
             Scene scene = new Scene(fxmlLoader.load());
             principalStage.setTitle("CREAR INCIDENCIA");
             principalStage.setScene(scene);
+        principalStage.setResizable(false);
             principalStage.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
