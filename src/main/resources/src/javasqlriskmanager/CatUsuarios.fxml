@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="443.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.CatUsuariosController">
+<AnchorPane prefHeight="443.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.CatUsuariosController">
    <children>
       <TableView fx:id="tbl_Usuarios" layoutX="48.0" layoutY="107.0" prefHeight="297.0" prefWidth="543.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="107.0">
         <columns>
@@ -29,7 +29,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_NuevoUsuario" layoutX="498.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: #1ED700;" text="Nuevo usuario" textFill="WHITE" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="498.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="59.0">
+      <Button fx:id="btn_NuevoUsuario" layoutX="498.0" layoutY="59.0" mnemonicParsing="false" onAction="#creaUser" style="-fx-background-color: #1ED700;" text="Nuevo usuario" textFill="WHITE" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="498.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="59.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
