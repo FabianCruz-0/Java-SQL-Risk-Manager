@@ -9,19 +9,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.LoginController">
    <children>
       <Label layoutX="93.0" layoutY="88.0" text="Iniciar Sesión">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
+      <TextField fx:id="emailLogin" layoutX="96.0" layoutY="153.0" promptText="Email" />
+      <PasswordField fx:id="passLogin" layoutX="96.0" layoutY="203.0" promptText="Contraseña" />
       <Button contentDisplay="CENTER" layoutX="125.0" layoutY="246.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #0000FF;" text="Iniciar Sesión" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <PasswordField fx:id="passLogin" layoutX="96.0" layoutY="203.0" promptText="Contraseña" />
-      <TextField fx:id="emailLogin" layoutX="96.0" layoutY="153.0" promptText="Email" />
+         </font>
+      </Button>
       <ImageView fitHeight="401.0" fitWidth="277.0" layoutX="332.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/login.jpeg" />
