@@ -8,16 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="439.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.CatDepartamentosController">
    <children>
       <TableView fx:id="tbl_Deptos" layoutX="41.0" layoutY="102.0" prefHeight="342.0" prefWidth="549.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="102.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Correo" />
-            <TableColumn prefWidth="75.0" text="Telefono" />
-            <TableColumn prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="col_nombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="col_correo" prefWidth="75.0" text="Correo" />
+            <TableColumn fx:id="col_telefono" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="col_tipo" prefWidth="75.0" text="Tipo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -34,6 +33,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-       <Button onAction="#irMenuPrincipal" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #ff3b3b;" text="Atrás" textFill="WHITE" />
+       <Button layoutX="41.0" layoutY="14.0" mnemonicParsing="false" onAction="#irMenuPrincipal" style="-fx-background-color: #ff3b3b;" text="Atrás" textFill="WHITE" />
    </children>
 </AnchorPane>

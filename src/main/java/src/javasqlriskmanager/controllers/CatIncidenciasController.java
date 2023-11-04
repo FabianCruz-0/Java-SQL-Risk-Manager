@@ -149,7 +149,6 @@ public class CatIncidenciasController implements Initializable {
     }
 
 
-
     public void irDetalle() throws IOException {
         principalStage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("DetalleIncidencia.fxml"));
