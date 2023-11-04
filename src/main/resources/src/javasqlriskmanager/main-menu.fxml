@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="453.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.MainMenuController">
+<AnchorPane prefHeight="453.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.MainMenuController">
    <children>
       <Label fx:id="lblBienvenida" layoutX="275.0" layoutY="45.0" text="Bienvenido(a) Usuario(a)" AnchorPane.bottomAnchor="381.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="258.0" AnchorPane.topAnchor="45.0">
          <font>

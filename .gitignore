@@ -12,6 +12,8 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea/artifacts/
+src/main/resources/META-INF/
 
 ### Eclipse ###
 .apt_generated

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.incidentcontrollers.DetalleIncidenciaController">
+<AnchorPane prefHeight="457.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.incidentcontrollers.DetalleIncidenciaController">
    <children>
       <Label layoutX="24.0" layoutY="22.0" text="Detalle de incidencia #0001">
          <font>
