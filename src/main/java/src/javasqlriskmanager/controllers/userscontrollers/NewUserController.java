@@ -1,4 +1,4 @@
-package src.javasqlriskmanager.controllers;
+package src.javasqlriskmanager.controllers.userscontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +9,15 @@ import java.io.IOException;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
-public class CatRolesController {
-    public void irMenuPrincipal() throws IOException {
+public class NewUserController {
+    public void createUser(ActionEvent actionEvent) {
+    }
+
+    public void irAtras() throws IOException {
         principalStage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatUsuarios.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        principalStage.setTitle("Menú Principal");
+        principalStage.setTitle("Catálogo de usuarios");
         principalStage.setScene(scene);
         principalStage.setResizable(false);
         principalStage.show();

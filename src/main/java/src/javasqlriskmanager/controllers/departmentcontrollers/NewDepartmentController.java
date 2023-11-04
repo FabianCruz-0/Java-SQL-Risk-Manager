@@ -1,4 +1,4 @@
-package src.javasqlriskmanager.controllers;
+package src.javasqlriskmanager.controllers.departmentcontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -9,14 +9,17 @@ import java.io.IOException;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
-public class CatDepartamentosController {
-    public void irMenuPrincipal() throws IOException {
+public class NewDepartmentController {
+    public void irAtras() throws IOException {
         principalStage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatDepartamentos.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        principalStage.setTitle("Menú Principal");
+        principalStage.setTitle("Catálogo de departamentos");
         principalStage.setScene(scene);
         principalStage.setResizable(false);
         principalStage.show();
+    }
+
+    public void createDepartment(ActionEvent actionEvent) {
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="439.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.CatDepartamentosController">
+<AnchorPane prefHeight="439.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.CatDepartamentosController">
    <children>
       <TableView fx:id="tbl_Deptos" layoutX="41.0" layoutY="102.0" prefHeight="342.0" prefWidth="549.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="102.0">
         <columns>
@@ -29,7 +29,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnNewDepto" layoutX="453.0" layoutY="56.0" mnemonicParsing="false" style="-fx-background-color: #1ED700;" text="Nuevo departamento" textFill="WHITE" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="453.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="56.0">
+      <Button onAction="#irNewDpto" layoutX="453.0" layoutY="56.0" mnemonicParsing="false" style="-fx-background-color: #1ED700;" text="Nuevo departamento" textFill="WHITE" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="453.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="56.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="435.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.CatIncidenciasController">
+<AnchorPane prefHeight="435.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.incidentcontrollers.CatIncidenciasController">
    <children>
       <TableView fx:id="tbl_incidencias" editable="true" layoutX="15.0" layoutY="94.0" prefHeight="333.0" prefWidth="765.0">
         <columns>

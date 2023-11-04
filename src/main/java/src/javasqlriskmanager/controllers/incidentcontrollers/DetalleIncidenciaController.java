@@ -1,4 +1,4 @@
-package src.javasqlriskmanager.controllers;
+package src.javasqlriskmanager.controllers.incidentcontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package src.javasqlriskmanager.controllers;
+package src.javasqlriskmanager.controllers.incidentcontrollers;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
