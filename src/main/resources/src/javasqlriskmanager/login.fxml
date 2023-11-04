@@ -16,12 +16,13 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
+      <TextField fx:id="emailLogin" layoutX="96.0" layoutY="153.0" promptText="Email" />
+      <PasswordField fx:id="passLogin" layoutX="96.0" layoutY="203.0" promptText="Contraseña" />
       <Button contentDisplay="CENTER" layoutX="125.0" layoutY="246.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #0000FF;" text="Iniciar Sesión" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <PasswordField fx:id="passLogin" layoutX="96.0" layoutY="203.0" promptText="Contraseña" />
-      <TextField fx:id="emailLogin" layoutX="96.0" layoutY="153.0" promptText="Email" />
+         </font>
+      </Button>
       <ImageView fitHeight="401.0" fitWidth="277.0" layoutX="332.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/login.jpeg" />
