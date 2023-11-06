@@ -10,10 +10,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import src.javasqlriskmanager.MainApplication;
+import src.javasqlriskmanager.controllers.LoginController;
+import src.javasqlriskmanager.singletons.SesionSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
@@ -28,16 +32,21 @@ public class NewIncidentController {
     @FXML
     ChoiceBox<String> ListSeveridad;
 
+    Map<String,Long> severitiesMap = new HashMap<>();
+    Map<String,Long> departamentsMap = new HashMap<>();
+    Map<String,Long> statusMap = new HashMap<>();
+
     @FXML
     protected void initialize() {
         // Load incident severities from the database and populate the ChoiceBox
         loadIncidentSeverities();
         loadIncidentDepartaments();
+        loadStatus();
     }
 
     private void loadIncidentSeverities() {
         ObservableList<String> severities = FXCollections.observableArrayList();
-        String selectQuery = "SELECT Name FROM Incident_Severity_Types";
+        String selectQuery = "SELECT * FROM Incident_Severity_Types";
 
         try {
             Connection con = ConnectToDB.connectToDB();
@@ -46,6 +55,7 @@ public class NewIncidentController {
 
             while (resultSet.next()) {
                 severities.add(resultSet.getString("Name"));
+                severitiesMap.put(resultSet.getString("Name"),resultSet.getLong("ID"));
             }
 
             con.close();
@@ -54,6 +64,8 @@ public class NewIncidentController {
         }
 
         ListSeveridad.setItems(severities);
+        if(severities.size()>0)
+            ListSeveridad.setValue(severities.get(0));
     }
 
     @FXML
@@ -61,7 +73,8 @@ public class NewIncidentController {
 
     private void loadIncidentDepartaments() {
         ObservableList<String> departaments = FXCollections.observableArrayList();
-        String selectQuery = "SELECT Name FROM Department_Types";
+
+        String selectQuery = "SELECT * FROM Departments";
 
         try {
             Connection con = ConnectToDB.connectToDB();
@@ -70,6 +83,7 @@ public class NewIncidentController {
 
             while (resultSet.next()) {
                 departaments.add(resultSet.getString("Name"));
+                departamentsMap.put(resultSet.getString("Name"),resultSet.getLong("ID"));
             }
 
             con.close();
@@ -78,6 +92,26 @@ public class NewIncidentController {
         }
 
         ListDep.setItems(departaments);
+        if(departaments.size()>0)
+            ListDep.setValue(departaments.get(0));
+    }
+
+    private void loadStatus() {
+        String selectQuery = "SELECT * FROM Incident_Status";
+
+        try {
+            Connection con = ConnectToDB.connectToDB();
+            PreparedStatement preparedStatement = con.prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                statusMap.put(resultSet.getString("Name"),resultSet.getLong("ID"));
+            }
+
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -85,7 +119,7 @@ public class NewIncidentController {
 
         String insertQuery = "INSERT INTO Incidents " +
                 "(Title, Description, CreatedAt, UpdateDate, ID_Status, ID_Severity, ID_CreatorUser, ID_AssignedUser, ID_Department)" +
-                " VALUES (?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL)";
+                " VALUES (?, ?, ?, ?, ?, ?, ?, NULL, ?)";
         try {
             Connection con = ConnectToDB.connectToDB();
             PreparedStatement preparedStatement = con.prepareStatement(insertQuery);
@@ -93,11 +127,10 @@ public class NewIncidentController {
             preparedStatement.setString(2,id_incidentDesc.getText());
             preparedStatement.setDate(3,new Date(System.currentTimeMillis()));
             preparedStatement.setDate(4,new Date(System.currentTimeMillis()));
-            //preparedStatement.setInt(5,1);
-            //preparedStatement.setInt(6,1);
-            //preparedStatement.setInt(7,1);
-            //preparedStatement.setInt(8,1);
-            //preparedStatement.setInt(9,1);
+            preparedStatement.setLong(5,statusMap.get("ABIERTA"));
+            preparedStatement.setLong(6,severitiesMap.get(ListSeveridad.getValue()));
+            preparedStatement.setLong(7, LoginController.sesionSingleton.getUsuario().getID());
+            preparedStatement.setLong(8,departamentsMap.get(ListDep.getValue()));
             preparedStatement.executeUpdate();
             con.close();
         } catch (SQLException e) {

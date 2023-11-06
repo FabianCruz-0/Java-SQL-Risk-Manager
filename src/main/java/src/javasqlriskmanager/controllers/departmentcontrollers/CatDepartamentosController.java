@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import src.javasqlriskmanager.MainApplication;
 import src.javasqlriskmanager.models.Department;
+import src.javasqlriskmanager.singletons.DepartmentSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
@@ -40,6 +41,8 @@ public class CatDepartamentosController implements Initializable {
     private TableColumn<Department, String> col_telefono;
     @FXML
     private TableColumn<Department, Long> col_tipo;
+
+    DepartmentSingleton departmentSingleton;
 
     @FXML
     void setDepartmentList()  {
@@ -78,6 +81,8 @@ public class CatDepartamentosController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Department rowData = row.getItem();
+                    departmentSingleton = DepartmentSingleton.getInstance();
+                    departmentSingleton.setDepartment(rowData);
                     //System.out.println(rowData.toString());
 
                     try {
