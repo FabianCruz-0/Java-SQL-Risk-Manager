@@ -74,7 +74,7 @@ public class NewIncidentController {
     private void loadIncidentDepartaments() {
         ObservableList<String> departaments = FXCollections.observableArrayList();
 
-        String selectQuery = "SELECT * FROM Department_Types";
+        String selectQuery = "SELECT * FROM Departments";
 
         try {
             Connection con = ConnectToDB.connectToDB();

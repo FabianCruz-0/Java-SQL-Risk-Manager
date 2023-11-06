@@ -50,7 +50,7 @@ public class NewUserController {
 
     private void loadDepartaments() {
         ObservableList<String> departaments = FXCollections.observableArrayList();
-        String selectQuery = "SELECT * FROM Department_Types";
+        String selectQuery = "SELECT * FROM Departments";
 
         try {
             Connection con = ConnectToDB.connectToDB();
