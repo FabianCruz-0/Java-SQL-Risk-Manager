@@ -1,5 +1,6 @@
 package src.javasqlriskmanager.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -92,5 +93,15 @@ public class MainMenuController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void salir() throws IOException {
+        principalStage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        principalStage.setTitle("Inicio de sesión");
+        principalStage.setScene(scene);
+        principalStage.setResizable(false);
+        principalStage.show();
     }
 }

@@ -7,6 +7,8 @@ public class SesionSingleton {
 
     private Usuario usuario;
 
+    private boolean isAdmin;
+
     public static SesionSingleton getInstance() {
         return instance;
     }
@@ -17,5 +19,13 @@ public class SesionSingleton {
 
     public void setUsuario(Usuario Usuario) {
         this.usuario = Usuario;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

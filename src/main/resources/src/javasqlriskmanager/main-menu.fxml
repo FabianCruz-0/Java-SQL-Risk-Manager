@@ -16,5 +16,6 @@
       <Button fx:id="btnCatUsuarios" layoutX="426.0" layoutY="108.0" mnemonicParsing="false" onAction="#goToUsers" prefHeight="125.0" prefWidth="194.0" text="Catálogo de Usuarios" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="426.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="108.0" />
       <Button fx:id="btnCatDepartamentos" layoutX="131.0" layoutY="283.0" mnemonicParsing="false" onAction="#goToDeptos" prefHeight="125.0" prefWidth="194.0" text="Catálogo de departamentos" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="419.0" AnchorPane.topAnchor="283.0" />
       <Button fx:id="btnCatRoles" layoutX="426.0" layoutY="283.0" mnemonicParsing="false" onAction="#goToRoles" prefHeight="125.0" prefWidth="194.0" text="Catálogo de roles" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="426.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="283.0" />
+      <Button fx:id="btnBack" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #ff3b3b;" text="Salir" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -71,6 +71,7 @@ public class LoginController {
                     while(rs.next())
                         compareRoles(rs);
                 } else {
+                    sesionSingleton.setAdmin(false);
                     principalStage.close();
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
@@ -95,7 +96,8 @@ public class LoginController {
         }
 
         public void compareRoles(ResultSet rs) throws IOException, SQLException {
-            if(rs.getString("Name").equals("admin")) {
+            if(rs.getString("Name").equals("admin") || rs.getString("Name").equals("DEFAULT")) {
+                sesionSingleton.setAdmin(true);
                 principalStage.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
@@ -105,6 +107,7 @@ public class LoginController {
                 principalStage.show();
 
             }else{
+                sesionSingleton.setAdmin(false);
                 principalStage.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());

@@ -134,6 +134,7 @@ public class CatIncidenciasController implements Initializable {
         principalStage.show();
     }
 
+    @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -148,16 +149,32 @@ public class CatIncidenciasController implements Initializable {
         col_Assigned.setCellValueFactory(new PropertyValueFactory<Incident, Long>("id_assignedUser"));
         col_Department.setCellValueFactory(new PropertyValueFactory<Incident, Long>("id_department"));
         setIncidentList();
+
+        if(LoginController.sesionSingleton.isAdmin())
+            btnBack.setText("Atrás");
+        else
+            btnBack.setText("Salir");
     }
 
     public void irMenuPrincipal() throws IOException {
-        principalStage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        principalStage.setTitle("Menú Principal");
-        principalStage.setScene(scene);
-        principalStage.setResizable(false);
-        principalStage.show();
+
+        if(LoginController.sesionSingleton.isAdmin()){
+            principalStage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            principalStage.setTitle("Menú Principal");
+            principalStage.setScene(scene);
+            principalStage.setResizable(false);
+            principalStage.show();
+        } else{
+            principalStage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            principalStage.setTitle("Inicio de sesión");
+            principalStage.setScene(scene);
+            principalStage.setResizable(false);
+            principalStage.show();
+        }
     }
 
 
@@ -170,11 +187,4 @@ public class CatIncidenciasController implements Initializable {
         principalStage.setResizable(false);
         principalStage.show();
     }
-
-    /* public void init(Boolean rol){
-        if(rol){
-            empleado = true;
-            btnBack.setVisible(false);
-        }
-    }*/
 }
