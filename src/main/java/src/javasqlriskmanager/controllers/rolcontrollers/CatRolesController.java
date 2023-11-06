@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import src.javasqlriskmanager.MainApplication;
 import src.javasqlriskmanager.models.Rol;
+import src.javasqlriskmanager.singletons.RolSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class CatRolesController implements Initializable {
     private TableColumn<Rol, Long> col_id;
     @FXML
     private TableColumn<Rol, String> col_nombre;
+
+    RolSingleton rolSingleton;
 
     @FXML
     void setRolList()  {
@@ -68,6 +71,8 @@ public class CatRolesController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Rol rowData = row.getItem();
+                    rolSingleton = RolSingleton.getInstance();
+                    rolSingleton.setRol(rowData);
                     //System.out.println(rowData.toString());
 
                     try {

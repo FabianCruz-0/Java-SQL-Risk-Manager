@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.DetalleDepartamentoController">
+<AnchorPane prefHeight="400.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.DetalleDepartamentoController">
     <children>
         <Label layoutX="34.0" layoutY="24.0" prefHeight="17.0" prefWidth="146.0" text="Detalle de departamento ">
             <font>
@@ -19,13 +19,13 @@
             <font>
             </font>
         </Button>
-      <Label layoutX="31.0" layoutY="87.0" text="Nombre" />
-      <Label layoutX="29.0" layoutY="134.0" text="Correo" />
-      <Label layoutX="29.0" layoutY="178.0" text="Telefono" />
-      <Label layoutX="34.0" layoutY="224.0" text="Tipo:" />
-      <TextField layoutX="106.0" layoutY="83.0" />
-      <TextField layoutX="106.0" layoutY="130.0" />
-      <TextField layoutX="106.0" layoutY="174.0" />
-      <TextField layoutX="106.0" layoutY="220.0" />
+      <Label layoutX="98.0" layoutY="123.0" text="Nombre" />
+      <Label layoutX="96.0" layoutY="170.0" text="Correo" />
+      <Label layoutX="96.0" layoutY="214.0" text="Telefono" />
+      <Label layoutX="101.0" layoutY="260.0" text="Tipo" />
+      <TextField fx:id="name" editable="false" layoutX="173.0" layoutY="119.0" style="-fx-text-fill: #777777;"/>
+      <TextField fx:id="email" editable="false" layoutX="173.0" layoutY="166.0" style="-fx-text-fill: #777777;"/>
+      <TextField fx:id="phone" editable="false" layoutX="173.0" layoutY="210.0" style="-fx-text-fill: #777777;"/>
+      <TextField fx:id="type" editable="false" layoutX="173.0" layoutY="256.0" style="-fx-text-fill: #777777;"/>
     </children>
 </AnchorPane>
