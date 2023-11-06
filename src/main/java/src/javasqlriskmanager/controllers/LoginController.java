@@ -8,11 +8,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import src.javasqlriskmanager.MainApplication;
+import src.javasqlriskmanager.models.Usuario;
+import src.javasqlriskmanager.singletons.SesionSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Objects;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
@@ -23,6 +26,10 @@ public class LoginController {
 
     @FXML
     PasswordField passLogin,passRegister;
+
+    Usuario user = null;
+
+    public static SesionSingleton sesionSingleton = SesionSingleton.getInstance();
 
     @FXML
     public void register() throws IOException {
@@ -79,6 +86,9 @@ public class LoginController {
                 while(rs.next()) {
                     if(rs.getString("Password").equals(passLogin.getText())) {
                         loginSuccess = true;
+                        user = new Usuario(rs.getLong("ID"), rs.getString("Name"),rs.getString("Email"),rs.getString("Position"),
+                                rs.getLong("ID_Role"),rs.getLong("ID_Department"),rs.getString("Password"));
+
                     }
                 }
 
@@ -89,20 +99,51 @@ public class LoginController {
         }
 
         if(loginSuccess == true) {
-            principalStage.close();
+            String selectQuery = "SELECT * FROM User_Roles WHERE ID = ?";
+            try {
+                Connection con = ConnectToDB.connectToDB();
+                PreparedStatement preparedStatement = con.prepareStatement(selectQuery);
+                preparedStatement.setString(1,user.getID_Role().toString());
+                ResultSet rs = preparedStatement.executeQuery();
+
+                while(rs.next()) {
+                    if(Objects.equals(rs.getString("Name"), "empleado")) {
+                        principalStage.close();
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        principalStage.setTitle("CREAR INCIDENCIA");
+                        principalStage.setScene(scene);
+                        principalStage.setResizable(false);
+                        principalStage.show();
+
+                    }else{
+                        principalStage.close();
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        principalStage.setTitle("MENU PRINCIPAL");
+                        principalStage.setScene(scene);
+                        principalStage.setResizable(false);
+                        principalStage.show();
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            /*principalStage.close();
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             principalStage.setTitle("CREAR INCIDENCIA");
             principalStage.setScene(scene);
-        principalStage.setResizable(false);
-            principalStage.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("No se pudo iniciar sesión.");
-            alert.showAndWait();
+            principalStage.setResizable(false);
+            principalStage.show();*/
+        }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("No se pudo iniciar sesión.");
+                alert.showAndWait();
+            }
         }
 
-    }
 }
