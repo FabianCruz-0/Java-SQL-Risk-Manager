@@ -22,54 +22,14 @@ import static src.javasqlriskmanager.MainApplication.principalStage;
 public class LoginController {
 
     @FXML
-    TextField emailLogin, emailRegister, nameRegister;
+    TextField emailLogin;
 
     @FXML
-    PasswordField passLogin,passRegister;
+    PasswordField passLogin;
 
     Usuario user = null;
 
     public static SesionSingleton sesionSingleton = SesionSingleton.getInstance();
-
-    @FXML
-    public void register() throws IOException {
-        boolean registerSuccess = false;
-
-        if(!nameRegister.getText().isBlank() && !emailRegister.getText().isBlank() && !passRegister.getText().isBlank() ) {
-            String insertQuery = "INSERT INTO Users " +
-                    "(Name, Email, Password, ID_Role, ID_Department)" +
-                    " VALUES (?, ?, ?, 1, 1)";
-            try {
-                Connection con = ConnectToDB.connectToDB();
-                PreparedStatement preparedStatement = con.prepareStatement(insertQuery);
-                preparedStatement.setString(1, nameRegister.getText());
-                preparedStatement.setString(2,emailRegister.getText());
-                preparedStatement.setString(3,passRegister.getText());
-                preparedStatement.executeUpdate();
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            registerSuccess = true;
-        }
-
-        if(registerSuccess == true) {
-            principalStage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            principalStage.setTitle("CREAR INCIDENCIA");
-            principalStage.setScene(scene);
-        principalStage.setResizable(false);
-            principalStage.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("No se pudo continuar con el registro.");
-            alert.showAndWait();
-        }
-    }
 
     public void login() throws IOException, SQLException {
         boolean loginSuccess = false;
@@ -88,7 +48,7 @@ public class LoginController {
                         loginSuccess = true;
                         user = new Usuario(rs.getLong("ID"), rs.getString("Name"),rs.getString("Email"),rs.getString("Position"),
                                 rs.getLong("ID_Role"),rs.getLong("ID_Department"),rs.getString("Password"));
-
+                        sesionSingleton.setUsuario(user);
                     }
                 }
 
@@ -103,46 +63,55 @@ public class LoginController {
             try {
                 Connection con = ConnectToDB.connectToDB();
                 PreparedStatement preparedStatement = con.prepareStatement(selectQuery);
-                preparedStatement.setString(1,user.getID_Role().toString());
+                preparedStatement.setLong(1,user.getID_Role());
                 ResultSet rs = preparedStatement.executeQuery();
 
-                while(rs.next()) {
-                    if(Objects.equals(rs.getString("Name"), "empleado")) {
-                        principalStage.close();
-                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
-                        principalStage.setTitle("CREAR INCIDENCIA");
-                        principalStage.setScene(scene);
-                        principalStage.setResizable(false);
-                        principalStage.show();
-
-                    }else{
-                        principalStage.close();
-                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
-                        principalStage.setTitle("MENU PRINCIPAL");
-                        principalStage.setScene(scene);
-                        principalStage.setResizable(false);
-                        principalStage.show();
-                    }
+                if(rs.next()) {
+                    compareRoles(rs);
+                    while(rs.next())
+                        compareRoles(rs);
+                } else {
+                    principalStage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    principalStage.setTitle("Catálogo de incidencias");
+                    principalStage.setScene(scene);
+                    principalStage.setResizable(false);
+                    principalStage.show();
                 }
+
+                con.close();
             }catch (Exception e){
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
 
-            /*principalStage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            principalStage.setTitle("CREAR INCIDENCIA");
-            principalStage.setScene(scene);
-            principalStage.setResizable(false);
-            principalStage.show();*/
         }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
-                alert.setContentText("No se pudo iniciar sesión.");
+                alert.setContentText("No se pudo iniciar sesión, credenciales no válidas.");
                 alert.showAndWait();
+            }
+        }
+
+        public void compareRoles(ResultSet rs) throws IOException, SQLException {
+            if(rs.getString("Name").equals("admin")) {
+                principalStage.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                principalStage.setTitle("Menú Principal");
+                principalStage.setScene(scene);
+                principalStage.setResizable(false);
+                principalStage.show();
+
+            }else{
+                principalStage.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CatIncidencias.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                principalStage.setTitle("Catálogo de incidencias");
+                principalStage.setScene(scene);
+                principalStage.setResizable(false);
+                principalStage.show();
             }
         }
 
