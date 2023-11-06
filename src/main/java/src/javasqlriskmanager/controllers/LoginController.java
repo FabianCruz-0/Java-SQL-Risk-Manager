@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import src.javasqlriskmanager.MainApplication;
+import src.javasqlriskmanager.models.Usuario;
+import src.javasqlriskmanager.singletons.SesionSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import javax.xml.transform.Result;
@@ -23,6 +25,8 @@ public class LoginController {
 
     @FXML
     PasswordField passLogin,passRegister;
+
+    public static SesionSingleton sesionSingleton = SesionSingleton.getInstance();
 
     @FXML
     public void register() throws IOException {
@@ -79,6 +83,9 @@ public class LoginController {
                 while(rs.next()) {
                     if(rs.getString("Password").equals(passLogin.getText())) {
                         loginSuccess = true;
+                        Usuario user = new Usuario(rs.getLong("ID"),rs.getString("Name"), rs.getString("Email"),
+                                rs.getString("Position"), rs.getLong("ID_Role"), rs.getLong("ID_Department"), rs.getString("Password"));
+                        sesionSingleton.setUsuario(user);
                     }
                 }
 

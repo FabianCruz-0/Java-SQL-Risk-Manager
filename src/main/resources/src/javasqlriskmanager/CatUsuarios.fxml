@@ -15,7 +15,7 @@
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="col_nombre" prefWidth="75.0" text="Nombre" />
             <TableColumn fx:id="col_email" prefWidth="75.0" text="Email" />
-            <TableColumn fx:id="col_posicion" prefWidth="75.0" text="Posicion" />
+            <TableColumn fx:id="col_posicion" prefWidth="75.0" text="Posición" />
             <TableColumn fx:id="col_rol" prefWidth="75.0" text="Rol" />
             <TableColumn fx:id="col_departamento" prefWidth="75.0" text="Departamento" />
             <TableColumn fx:id="col_pass" prefWidth="75.0" text="Password" />
