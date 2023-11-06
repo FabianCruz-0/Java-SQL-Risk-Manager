@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import src.javasqlriskmanager.MainApplication;
+import src.javasqlriskmanager.controllers.LoginController;
 import src.javasqlriskmanager.models.Incident;
 import src.javasqlriskmanager.singletons.IncidentSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
@@ -33,6 +35,7 @@ import static src.javasqlriskmanager.MainApplication.principalStage;
 public class CatIncidenciasController implements Initializable {
 
     private Parent root;
+    public Boolean empleado = false;
 
     @FXML
     TableView<Incident> tbl_incidencias;
@@ -57,6 +60,9 @@ public class CatIncidenciasController implements Initializable {
     private TableColumn<Incident, Long> col_Assigned;
     @FXML
     private TableColumn<Incident, Long> col_Department;
+
+    @FXML
+    private Button btnBack;
 
     IncidentSingleton incidentSingleton;
 
@@ -130,6 +136,7 @@ public class CatIncidenciasController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         col_id.setCellValueFactory(new PropertyValueFactory<Incident, Long>("id")); //Nombre segun como se llama en el model
         col_Title.setCellValueFactory(new PropertyValueFactory<Incident, String>("title"));
         col_Description.setCellValueFactory(new PropertyValueFactory<Incident, String>("description"));
@@ -163,4 +170,11 @@ public class CatIncidenciasController implements Initializable {
         principalStage.setResizable(false);
         principalStage.show();
     }
+
+    /* public void init(Boolean rol){
+        if(rol){
+            empleado = true;
+            btnBack.setVisible(false);
+        }
+    }*/
 }

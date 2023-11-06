@@ -4,23 +4,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import src.javasqlriskmanager.MainApplication;
+import src.javasqlriskmanager.models.Usuario;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
 
 public class MainMenuController {
 
+    @FXML
+    private Label lblBienvenida;
+    private LoginController controllerLogin;
+    private Stage stage;
+    private Long idUser;
     private Parent root;
+
+
     @FXML
     protected void  goToIncidents() throws IOException {
         principalStage.close();
@@ -63,5 +69,28 @@ public class MainMenuController {
         principalStage.setScene(scene);
         principalStage.setResizable(false);
         principalStage.show();
+    }
+
+    public void init(Long id, Stage principalStage, LoginController loginController) {
+        idUser = id;
+        this.controllerLogin = loginController;
+        this.stage = principalStage;
+
+        String selectQuery = "SELECT * FROM Users WHERE ID = ?";
+        try {
+            Connection con = ConnectToDB.connectToDB();
+            PreparedStatement preparedStatement = con.prepareStatement(selectQuery);
+            preparedStatement.setString(1,id.toString());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                String nombre = rs.getString("Name");
+                lblBienvenida.setText("Bienvenido(a) " + nombre);
+            }
+
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
