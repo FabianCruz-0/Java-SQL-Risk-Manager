@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.incidentcontrollers.DetalleIncidenciaController">
+<AnchorPane prefHeight="457.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.incidentcontrollers.DetalleIncidenciaController">
    <children>
-      <Label layoutX="24.0" layoutY="22.0" text="Detalle de incidencia #0001">
+      <Label fx:id="incidentDetail" layoutX="24.0" layoutY="22.0" text="Detalle de incidencia #0001">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button onAction="#irCatalogo" layoutX="564.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
+      <Button layoutX="564.0" layoutY="20.0" mnemonicParsing="false" onAction="#irCatalogo" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -30,12 +30,12 @@
       </VBox>
       <VBox layoutX="135.0" layoutY="79.0" prefHeight="90.0" prefWidth="174.0" spacing="15.0">
          <children>
-            <Label text="El titulo" />
-            <Label text="0001" />
-            <Label text="Open" />
+            <Label fx:id="title" text="El titulo" />
+            <Label fx:id="idNumber" text="0001" />
+            <Label fx:id="status" text="Open" />
          </children>
       </VBox>
-      <TextArea layoutX="55.0" layoutY="206.0" prefHeight="147.0" prefWidth="256.0" text="Descripción..." />
+      <TextArea fx:id="description" editable="false" layoutX="55.0" layoutY="206.0" prefHeight="147.0" prefWidth="256.0" style="-fx-text-fill: #777777;" text="Descripción..." />
       <VBox alignment="TOP_RIGHT" layoutX="360.0" layoutY="88.0" prefHeight="118.0" prefWidth="100.0" spacing="15.0">
          <children>
             <Label text="Fecha de cración" />
@@ -48,12 +48,12 @@
       </VBox>
       <VBox alignment="TOP_RIGHT" layoutX="490.0" layoutY="88.0" prefHeight="118.0" prefWidth="100.0" spacing="15.0">
          <children>
-            <Label text="Fecha" />
-            <Label text="Producción" />
-            <Label text="Urgente" />
-            <Label text="Fabian" />
-            <Label text="Uriel" />
-            <Label text="Última actualización" />
+            <Label fx:id="createdDate" text="Fecha" />
+            <Label fx:id="department" text="Producción" />
+            <Label fx:id="severity" text="Urgente" />
+            <Label fx:id="assignedUser" text="Fabian" />
+            <Label fx:id="creatorUser" text="Uriel" />
+            <Label fx:id="updateDate" text="Última actualización" />
          </children>
       </VBox>
       <Separator layoutX="327.0" layoutY="79.0" orientation="VERTICAL" prefHeight="368.0" prefWidth="0.0" />

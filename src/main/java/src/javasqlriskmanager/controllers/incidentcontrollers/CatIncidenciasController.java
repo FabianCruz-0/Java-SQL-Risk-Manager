@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import src.javasqlriskmanager.MainApplication;
 import src.javasqlriskmanager.models.Incident;
+import src.javasqlriskmanager.singletons.IncidentSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 import src.javasqlriskmanager.utils.IncidentDTO;
 import javafx.scene.Parent;
@@ -56,6 +57,8 @@ public class CatIncidenciasController implements Initializable {
     private TableColumn<Incident, Long> col_Assigned;
     @FXML
     private TableColumn<Incident, Long> col_Department;
+
+    IncidentSingleton incidentSingleton;
 
     @FXML
     void setIncidentList()  {
@@ -98,6 +101,8 @@ public class CatIncidenciasController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Incident rowData = row.getItem();
+                    incidentSingleton = IncidentSingleton.getInstance();
+                    incidentSingleton.setIncident(rowData);
                     //System.out.println(rowData.toString());
 
                     try {
