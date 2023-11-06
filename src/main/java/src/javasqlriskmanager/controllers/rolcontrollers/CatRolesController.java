@@ -68,7 +68,7 @@ public class CatRolesController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Rol rowData = row.getItem();
-                    System.out.println(rowData.toString());
+                    //System.out.println(rowData.toString());
 
                     try {
                         irDetalle();

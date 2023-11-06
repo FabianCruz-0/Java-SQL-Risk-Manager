@@ -49,11 +49,11 @@ public class Department {
         Phone = phone;
     }
 
-    public Long getID_DeptType() {
+    public Long getID_DepType() {
         return ID_DepType;
     }
 
-    public void setID_DeptType(Long ID_DepType) {
+    public void setID_DepType(Long ID_DepType) {
         this.ID_DepType = ID_DepType;
     }
 

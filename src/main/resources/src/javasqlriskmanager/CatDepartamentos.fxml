@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="439.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.CatDepartamentosController">
+<AnchorPane prefHeight="439.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.CatDepartamentosController">
    <children>
       <TableView fx:id="tbl_Deptos" layoutX="41.0" layoutY="102.0" prefHeight="342.0" prefWidth="549.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="102.0">
         <columns>

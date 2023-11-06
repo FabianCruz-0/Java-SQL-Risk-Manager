@@ -78,7 +78,7 @@ public class CatDepartamentosController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Department rowData = row.getItem();
-                    System.out.println(rowData.toString());
+                    //System.out.println(rowData.toString());
 
                     try {
                         irDetalle();

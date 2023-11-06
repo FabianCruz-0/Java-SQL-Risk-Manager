@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.DetalleUsuarioController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.DetalleUsuarioController">
    <children>
       <Separator layoutX="296.0" layoutY="2.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="7.0" />
       <Label layoutX="28.0" layoutY="36.0" text="Nombre de usuario" />
