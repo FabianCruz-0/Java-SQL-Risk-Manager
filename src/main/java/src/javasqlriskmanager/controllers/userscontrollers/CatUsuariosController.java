@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import src.javasqlriskmanager.MainApplication;
 import src.javasqlriskmanager.models.Usuario;
+import src.javasqlriskmanager.singletons.UserSingleton;
 import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class CatUsuariosController implements Initializable {
     private TableColumn<Usuario, Long> col_departamento;
     @FXML
     private TableColumn<Usuario, String> col_pass;
+
+    UserSingleton userSingleton;
 
     @FXML
     void setUsuariosList()  {
@@ -83,6 +86,10 @@ public class CatUsuariosController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     Usuario rowData = row.getItem();
+
+                    userSingleton = UserSingleton.getInstance();
+                    userSingleton.setUsuario(rowData);
+
                     //System.out.println(rowData.toString());
 
                     try {
