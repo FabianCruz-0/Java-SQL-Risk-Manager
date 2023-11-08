@@ -97,6 +97,7 @@ public class CatIncidenciasController implements Initializable {
             con.close();
 
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
 

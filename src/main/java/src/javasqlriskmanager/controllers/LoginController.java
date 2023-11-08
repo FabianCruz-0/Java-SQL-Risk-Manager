@@ -54,6 +54,7 @@ public class LoginController {
 
                 con.close();
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 e.printStackTrace();
             }
         }

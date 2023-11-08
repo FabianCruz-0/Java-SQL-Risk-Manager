@@ -31,6 +31,7 @@ public class NewRolController {
             preparedStatement.executeUpdate();
             con.close();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
 
