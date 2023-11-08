@@ -16,7 +16,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnBack" layoutX="603.0" layoutY="30.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #CCFF5F;" text="Cerrar Sesion" />
+            <Button fx:id="btnBack" layoutX="603.0" layoutY="30.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #CCFF5F;" text="Cerrar Sesión" />
             <ImageView fitHeight="56.0" fitWidth="185.0" layoutX="25.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/logoSS.png" />
