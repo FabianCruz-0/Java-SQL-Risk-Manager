@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="400.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.departmentcontrollers.DetalleDepartamentoController">
     <children>
         <Label layoutX="34.0" layoutY="24.0" prefHeight="17.0" prefWidth="146.0" text="Detalle de departamento ">
@@ -27,5 +28,10 @@
       <TextField fx:id="email" editable="false" layoutX="173.0" layoutY="166.0" style="-fx-text-fill: #777777;"/>
       <TextField fx:id="phone" editable="false" layoutX="173.0" layoutY="210.0" style="-fx-text-fill: #777777;"/>
       <TextField fx:id="type" editable="false" layoutX="173.0" layoutY="256.0" style="-fx-text-fill: #777777;"/>
+        <Button layoutX="327.0" layoutY="353.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #ee5555;" text="Eliminar" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
