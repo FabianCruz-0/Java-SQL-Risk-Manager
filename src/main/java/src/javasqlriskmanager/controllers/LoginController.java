@@ -97,7 +97,7 @@ public class LoginController {
         }
 
         public void compareRoles(ResultSet rs) throws IOException, SQLException {
-            if(rs.getString("Name").equals("admin") || rs.getString("Name").equals("DEFAULT")) {
+            if(rs.getString("Name").equals("ADMIN") || rs.getString("Name").equals("DEFAULT")) {
                 sesionSingleton.setAdmin(true);
                 principalStage.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu.fxml"));
