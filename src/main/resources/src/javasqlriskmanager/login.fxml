@@ -25,7 +25,7 @@
       </Button>
       <ImageView fitHeight="401.0" fitWidth="277.0" layoutX="332.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/login.jpeg" />
+            <Image url="@images/login.jpg" />
          </image>
       </ImageView>
    </children>
