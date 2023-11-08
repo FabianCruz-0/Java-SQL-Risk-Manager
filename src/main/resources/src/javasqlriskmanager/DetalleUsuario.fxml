@@ -34,5 +34,10 @@
       <Label layoutX="328.0" layoutY="94.0" text="Rol" />
       <TextField fx:id="department" editable="false" layoutX="327.0" layoutY="172.0" prefHeight="25.0" prefWidth="234.0" style="-fx-text-fill: #777777;" />
       <Label layoutX="328.0" layoutY="155.0" text="Departamento" />
+      <Button layoutX="327.0" layoutY="353.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #ee5555;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
