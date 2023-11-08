@@ -14,18 +14,18 @@
          </font>
       </Label>
       <Label layoutX="37.0" layoutY="174.0" text="Nombre" />
-      <TextField fx:id="name" editable="false" layoutX="37.0" layoutY="201.0" prefHeight="25.0" prefWidth="284.0" style="-fx-text-fill: #777777;"/>
+      <TextField fx:id="name" editable="false" layoutX="37.0" layoutY="201.0" prefHeight="25.0" prefWidth="284.0" style="-fx-text-fill: #777777;" />
       <Button layoutX="37.0" layoutY="339.0" mnemonicParsing="false" onAction="#irCatalogo" style="-fx-background-color: #0D82FF;" text="Regresar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="249.0" layoutY="339.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+      <Label layoutX="37.0" layoutY="86.0" text="Id" />
+      <TextField fx:id="id" editable="false" layoutX="37.0" layoutY="113.0" prefHeight="25.0" prefWidth="284.0" style="-fx-text-fill: #777777;" />
+      <Button layoutX="253.0" layoutY="339.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #ee5555;" text="Eliminar" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="37.0" layoutY="86.0" text="Id" />
-      <TextField fx:id="id" editable="false" layoutX="37.0" layoutY="113.0" prefHeight="25.0" prefWidth="284.0" style="-fx-text-fill: #777777;"/>
    </children>
 </AnchorPane>
