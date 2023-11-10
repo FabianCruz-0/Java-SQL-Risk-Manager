@@ -60,7 +60,8 @@ public class NewIncidentController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         ListSeveridad.setItems(severities);
@@ -88,7 +89,8 @@ public class NewIncidentController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         ListDep.setItems(departaments);
@@ -110,7 +112,8 @@ public class NewIncidentController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
     }
 
@@ -134,6 +137,7 @@ public class NewIncidentController {
             preparedStatement.executeUpdate();
             con.close();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
 

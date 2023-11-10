@@ -18,9 +18,9 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="273.0" layoutY="339.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+      <Button onAction="#delete" layoutX="273.0" layoutY="339.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="14.0" />
          </font>
       </Button>
       <Label layoutX="37.0" layoutY="86.0" text="Id" />

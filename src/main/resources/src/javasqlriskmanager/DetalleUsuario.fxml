@@ -36,5 +36,10 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button layoutX="327.0" layoutY="353.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #ee5555;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

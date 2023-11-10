@@ -71,7 +71,8 @@ public class CatDepartamentosController implements Initializable {
             con.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         tbl_Deptos.setItems(departmentList);

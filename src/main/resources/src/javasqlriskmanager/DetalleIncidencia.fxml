@@ -55,5 +55,10 @@
       <TextField fx:id="assignedUser" layoutX="484.0" layoutY="181.0" />
       <TextField fx:id="creatorUser" layoutX="484.0" layoutY="213.0" />
       <TextField fx:id="updateDate" layoutX="484.0" layoutY="245.0" />
+      <Button onAction="#delete" layoutX="567.0" layoutY="405.0" mnemonicParsing="false" style="-fx-background-color: #ee5555;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

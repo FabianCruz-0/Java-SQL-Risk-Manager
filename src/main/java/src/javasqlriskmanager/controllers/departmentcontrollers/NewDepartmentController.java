@@ -57,7 +57,8 @@ public class NewDepartmentController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         depType.setItems(departamentTypes);
@@ -79,7 +80,8 @@ public class NewDepartmentController {
             preparedStatement.executeUpdate();
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         principalStage.close();

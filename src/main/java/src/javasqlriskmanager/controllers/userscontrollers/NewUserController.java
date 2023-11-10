@@ -64,7 +64,8 @@ public class NewUserController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         listDep.setItems(departaments);
@@ -88,7 +89,8 @@ public class NewUserController {
 
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         listRoles.setItems(roles);
@@ -121,7 +123,8 @@ public class NewUserController {
             preparedStatement.executeUpdate();
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+                e.printStackTrace();
         }
 
         principalStage.close();

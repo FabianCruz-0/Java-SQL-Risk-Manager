@@ -91,6 +91,7 @@ public class MainMenuController {
 
             con.close();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

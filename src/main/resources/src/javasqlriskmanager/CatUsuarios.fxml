@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="443.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.CatUsuariosController">
+<AnchorPane prefHeight="443.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.CatUsuariosController">
    <children>
-      <TableView fx:id="tbl_Usuarios" layoutX="48.0" layoutY="107.0" prefHeight="297.0" prefWidth="543.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="107.0">
+      <TableView fx:id="tbl_Usuarios" layoutX="17.0" layoutY="107.0" prefHeight="297.0" prefWidth="594.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="107.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="col_nombre" prefWidth="75.0" text="Nombre" />
             <TableColumn fx:id="col_email" prefWidth="75.0" text="Email" />
             <TableColumn fx:id="col_posicion" prefWidth="75.0" text="Posición" />
-            <TableColumn fx:id="col_rol" prefWidth="75.0" text="Rol" />
-            <TableColumn fx:id="col_departamento" prefWidth="75.0" text="Departamento" />
+            <TableColumn fx:id="col_rol" prefWidth="73.0" text="Rol" />
+            <TableColumn fx:id="col_departamento" prefWidth="93.0" text="Departamento" />
             <TableColumn fx:id="col_pass" prefWidth="75.0" text="Password" />
         </columns>
          <columnResizePolicy>
