@@ -70,7 +70,6 @@ public class DetalleIncidenciaController implements Initializable {
         // Habilitar la edición de campos
         title.setDisable(false);
         description.setDisable(false);
-        idNumber.setDisable(false);
         status.setDisable(false);
         createdDate.setDisable(false);
         departament.setDisable(false);
@@ -157,6 +156,11 @@ public class DetalleIncidenciaController implements Initializable {
 
         } catch (SQLException e) {
             // Manejar errores de SQL
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No se pudo realizar la actuación de información. Revisar la consola para más información.");
+            alert.showAndWait();
             System.err.println("Error al ejecutar la sentencia SQL: " + e.getMessage());
         }
     }

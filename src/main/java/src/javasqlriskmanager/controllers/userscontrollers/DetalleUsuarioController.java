@@ -55,7 +55,6 @@ public class DetalleUsuarioController implements Initializable {
 
     public void editarUsuario() {
         // Habilitar la edición de campos
-        idText.setDisable(false);
         name.setDisable(false);
         email.setDisable(false);
         password.setDisable(false);
@@ -131,6 +130,11 @@ public class DetalleUsuarioController implements Initializable {
 
         } catch (SQLException e) {
             // Manejar errores de SQL
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No se pudo realizar la actuación de información. Revisar la consola para más información.");
+            alert.showAndWait();
             System.err.println("Error al ejecutar la sentencia SQL: " + e.getMessage());
         }
     }

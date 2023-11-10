@@ -112,6 +112,12 @@ public class DetalleDepartamentoController implements Initializable {
 
         } catch (SQLException e) {
             // Manejar errores de SQL
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No se pudo realizar la actuación de información. Revisar la consola para más información.");
+            alert.showAndWait();
+
             System.err.println("Error al ejecutar la sentencia SQL: " + e.getMessage());
         }
     }

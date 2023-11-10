@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +9,7 @@
 
 <AnchorPane prefHeight="443.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.javasqlriskmanager.controllers.userscontrollers.CatUsuariosController">
    <children>
-      <TableView fx:id="tbl_Usuarios" layoutX="17.0" layoutY="107.0" prefHeight="297.0" prefWidth="594.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="107.0">
+      <TableView fx:id="tbl_Usuarios" layoutX="17.0" layoutY="107.0" prefHeight="322.0" prefWidth="589.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="107.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="col_nombre" prefWidth="75.0" text="Nombre" />
@@ -34,7 +33,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Pagination layoutX="197.0" layoutY="404.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="404.0" />
        <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#irMenuPrincipal" style="-fx-background-color: #ff3b3b;" text="Atrás" textFill="WHITE" />
    </children>
 </AnchorPane>

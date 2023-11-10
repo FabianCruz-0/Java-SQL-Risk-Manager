@@ -45,7 +45,6 @@ public class DetalleRolController implements Initializable {
 
     public void editarUsuario() {
         // Habilitar la edición de campos
-        id.setDisable(false);
         name.setDisable(false);
 
         // Deshabilitar el botón "Editar" y habilitar el botón "Guardar"
@@ -101,6 +100,11 @@ public class DetalleRolController implements Initializable {
 
         } catch (SQLException e) {
             // Manejar errores de SQL
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No se pudo realizar la actuación de información. Revisar la consola para más información.");
+            alert.showAndWait();
             System.err.println("Error al ejecutar la sentencia SQL: " + e.getMessage());
         }
     }
