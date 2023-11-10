@@ -4,14 +4,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.w3c.dom.Text;
 import src.javasqlriskmanager.MainApplication;
 import src.javasqlriskmanager.models.Rol;
+import src.javasqlriskmanager.models.Usuario;
 import src.javasqlriskmanager.singletons.RolSingleton;
+import src.javasqlriskmanager.singletons.UserSingleton;
+import src.javasqlriskmanager.utils.ConnectToDB;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import static src.javasqlriskmanager.MainApplication.principalStage;
@@ -23,6 +30,74 @@ public class DetalleRolController implements Initializable {
 
     @FXML
     TextField name;
+
+    @FXML
+    Button editButton;
+
+    @FXML
+    Button saveButton;
+
+    public void editarUsuario() {
+        // Habilitar la edición de campos
+        id.setDisable(false);
+        name.setDisable(false);
+
+        // Deshabilitar el botón "Editar" y habilitar el botón "Guardar"
+        editButton.setDisable(true);
+        saveButton.setDisable(false);
+    }
+
+    public void guardarCambios() {
+        // Obtener los valores actualizados de los campos
+        Rol rol = RolSingleton.instance.getRol();
+        rol.setID((long) Integer.parseInt(id.getText()));
+        String userName = name.getText();
+
+        // Crear una conexión a la base de datos
+        Connection con = ConnectToDB.connectToDB();
+
+        if (con == null) {
+            // Manejar la conexión nula o errores de conexión
+            System.out.println("Error al conectar a la base de datos.");
+            return;
+        }
+
+        // Construir la sentencia SQL UPDATE
+        String updateQuery = "UPDATE User_Roles SET Name = ? WHERE ID = ?";
+
+        try {
+            // Crear un PreparedStatement para ejecutar la sentencia UPDATE
+            PreparedStatement pstmt = con.prepareStatement(updateQuery);
+            pstmt.setString(1, userName);
+            pstmt.setLong(2, rol.getID());
+
+
+            // Ejecutar la sentencia SQL UPDATE
+            int rowsAffected = pstmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                // La actualización fue exitosa
+                System.out.println("Los cambios se guardaron correctamente.");
+            } else {
+                // La actualización no afectó ninguna fila
+                System.out.println("Ninguna fila se actualizó. Verifique el ID de usuario.");
+            }
+
+            // Cerrar el PreparedStatement y la conexión
+            pstmt.close();
+            con.close();
+
+            // Deshabilitar la edición de campos y habilitar el botón "Editar"
+            id.setDisable(true);
+            name.setDisable(true);
+            editButton.setDisable(false);
+            saveButton.setDisable(true);
+
+        } catch (SQLException e) {
+            // Manejar errores de SQL
+            System.err.println("Error al ejecutar la sentencia SQL: " + e.getMessage());
+        }
+    }
 
     public void irCatalogo() throws IOException {
         principalStage.close();
@@ -40,5 +115,12 @@ public class DetalleRolController implements Initializable {
 
         id.setText(rol.getID().toString());
         name.setText(rol.getName());
+
+        id.setDisable(true);
+        name.setDisable(true);
+
+        // Habilitar el botón "Editar"
+        editButton.setDisable(false);
+        saveButton.setDisable(true);
     }
 }
